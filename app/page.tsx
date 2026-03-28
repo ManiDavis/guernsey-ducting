@@ -67,7 +67,13 @@ const DEFAULTS = {
 }
 
 export default async function HomePage() {
-  const { data } = await sanityFetch({ query: SITE_DATA_QUERY })
+  let data: Awaited<ReturnType<typeof sanityFetch>>['data'] = null
+  try {
+    const result = await sanityFetch({ query: SITE_DATA_QUERY })
+    data = result.data
+  } catch {
+    // Sanity not configured or unreachable — render with fallback content
+  }
 
   const settings = { ...DEFAULTS.settings, ...(data?.settings ?? {}) }
   const hero = { ...DEFAULTS.hero, ...(data?.hero ?? {}) }
