@@ -25,7 +25,9 @@ export default function Hero({ data }: { data: HeroData }) {
           playsInline
           aria-hidden="true"
         />
-      ) : null}
+      ) : (
+        <div className="hero-video-todo">Video background — to be added</div>
+      )}
       <div className="hero-bg" />
       <div className="container hero-content">
         {data.badge && <div className="hero-badge">{data.badge}</div>}

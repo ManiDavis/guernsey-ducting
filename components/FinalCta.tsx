@@ -31,11 +31,6 @@ export default function FinalCta({
             {settings.email ?? 'guernseyducting@cwgsy.net'}
           </a>
         </div>
-        <div className="fca-details">
-          {settings.phone && <span>{settings.phone}</span>}
-          {settings.phone && settings.email && <span className="fca-sep">·</span>}
-          {settings.email && <span>{settings.email}</span>}
-        </div>
       </div>
     </section>
   )

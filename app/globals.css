@@ -92,6 +92,21 @@ a  { color: inherit; text-decoration: none; }
 }
 .btn-nav:hover { background: var(--orange2); }
 
+/* ── Photo placeholder ─────────────────────── */
+.photo-placeholder {
+  background: linear-gradient(135deg, var(--gray-200) 0%, #dde3ea 100%);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 /* ============================================
    HEADER / NAV
    ============================================ */
@@ -164,6 +179,21 @@ a  { color: inherit; text-decoration: none; }
   object-fit: cover;
   opacity: 0.35;
   pointer-events: none;
+}
+.hero-video-todo {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  z-index: 2;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  padding: 7px 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 .hero-bg {
   position: absolute;
@@ -247,13 +277,6 @@ a  { color: inherit; text-decoration: none; }
    SECTION COMMON
    ============================================ */
 .section { padding: 96px 0; }
-.section-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 64px;
-}
-.section-header-light h2  { color: var(--white); }
-.section-header-light p   { color: rgba(255,255,255,.65); }
 .section-tag {
   display: inline-block;
   color: var(--blue-lt);
@@ -264,25 +287,11 @@ a  { color: inherit; text-decoration: none; }
   margin-bottom: 12px;
 }
 .section-tag-light { color: var(--orange); }
-.section-header h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  color: var(--text);
-}
-.section-header p {
-  font-size: 1.05rem;
-  color: var(--text-light);
-  line-height: 1.7;
-}
 
 /* ============================================
    THE IDEA
    ============================================ */
-.the-idea {
-  background: var(--navy2);
-}
+.the-idea { background: var(--navy2); }
 .the-idea-inner {
   max-width: 760px;
   margin: 0 auto;
@@ -316,11 +325,8 @@ a  { color: inherit; text-decoration: none; }
    SERVICES
    ============================================ */
 .services { background: var(--off-white); }
-.services-layout {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 80px;
-  align-items: start;
+.services-header {
+  margin-bottom: 48px;
 }
 .services-header .section-tag { display: block; margin-bottom: 16px; }
 .services-header h2 {
@@ -331,10 +337,15 @@ a  { color: inherit; text-decoration: none; }
   color: var(--text);
 }
 .services-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.services-list-wrap {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding-top: 8px;
 }
 .services-list {
   list-style: none;
@@ -360,9 +371,9 @@ a  { color: inherit; text-decoration: none; }
   flex-shrink: 0;
 }
 .services-pull {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.35;
   color: var(--text);
   padding-left: 18px;
   border-left: 3px solid var(--orange);
@@ -372,7 +383,24 @@ a  { color: inherit; text-decoration: none; }
    WHY US
    ============================================ */
 .why-us { background: var(--navy); }
-.why-us .section-header { margin-bottom: 48px; }
+.why-us-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+.why-us-header .section-tag { display: block; margin-bottom: 12px; }
+.why-us-header h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+.why-us-header p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.7;
+}
 .differentiators {
   list-style: none;
   max-width: 760px;
@@ -418,11 +446,8 @@ a  { color: inherit; text-decoration: none; }
    WHERE FOUND
    ============================================ */
 .where-found { background: var(--white); }
-.where-found-inner {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 80px;
-  align-items: start;
+.where-found-header {
+  margin-bottom: 48px;
 }
 .where-found-header .section-tag { display: block; margin-bottom: 16px; }
 .where-found-header h2 {
@@ -432,7 +457,12 @@ a  { color: inherit; text-decoration: none; }
   color: var(--text);
 }
 .where-found-body {
-  padding-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.where-found-list-wrap {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -463,7 +493,7 @@ a  { color: inherit; text-decoration: none; }
   background: var(--orange);
 }
 .where-tagline {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-light);
   font-style: italic;
@@ -475,9 +505,13 @@ a  { color: inherit; text-decoration: none; }
 .for-contractors { background: var(--navy2); }
 .for-contractors-inner {
   display: grid;
-  grid-template-columns: 5fr 7fr;
+  grid-template-columns: 7fr 5fr;
   gap: 80px;
   align-items: start;
+}
+.fc-label {
+  padding-top: 4px;
+  text-align: right;
 }
 .fc-label .section-tag-light { display: block; margin-bottom: 0; }
 .fc-content h2 {
@@ -558,16 +592,6 @@ a  { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
   justify-content: center;
 }
-.fca-details {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,.35);
-}
-.fca-sep { color: rgba(255,255,255,.2); }
 
 /* ============================================
    FOOTER
@@ -640,10 +664,10 @@ a  { color: inherit; text-decoration: none; }
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
-  .services-layout,
-  .where-found-inner,
   .for-contractors-inner,
   .our-story-inner { gap: 48px; }
+  .services-body,
+  .where-found-body { gap: 48px; }
 }
 
 @media (max-width: 768px) {
@@ -669,10 +693,12 @@ a  { color: inherit; text-decoration: none; }
   .hero h1 { font-size: 2.2rem; }
   .hero-video { display: none; }
   .hero-stats { gap: 16px; }
-  .services-layout,
-  .where-found-inner,
-  .for-contractors-inner,
-  .our-story-inner { grid-template-columns: 1fr; gap: 32px; }
+  .services-body,
+  .where-found-body { grid-template-columns: 1fr; }
+  .photo-placeholder { aspect-ratio: 16/9; }
+  .for-contractors-inner { grid-template-columns: 1fr; gap: 24px; }
+  .fc-label { text-align: left; order: -1; }
+  .our-story-inner { grid-template-columns: 1fr; gap: 24px; }
   .environments-list { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; gap: 32px; }
   .footer-links { align-items: flex-start; }

@@ -14,7 +14,7 @@ export default function WhyUs({ data }: { data: WhyUsData }) {
   return (
     <section className="why-us section" id="why-us">
       <div className="container">
-        <div className="section-header section-header-light">
+        <div className="why-us-header">
           <span className="section-tag section-tag-light">Why We&apos;re Different</span>
           {data.headline && <h2>{data.headline}</h2>}
           {data.subtext && <p>{data.subtext}</p>}
