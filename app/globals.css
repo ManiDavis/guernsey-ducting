@@ -104,7 +104,7 @@ a  { color: inherit; text-decoration: none; }
 
 /* ── Section tag ───────────────────────────── */
 .section-tag {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 10px;
   color: var(--text-light);
@@ -123,7 +123,7 @@ a  { color: inherit; text-decoration: none; }
   flex-shrink: 0;
 }
 .section-tag-light {
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.6);
 }
 .section-tag-light::before {
   background: var(--orange);
@@ -258,7 +258,7 @@ a  { color: inherit; text-decoration: none; }
 }
 .hero-sub {
   font-size: 1.1rem;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.75);
   max-width: 520px;
   margin-bottom: 40px;
   line-height: 1.75;
@@ -481,7 +481,7 @@ a  { color: inherit; text-decoration: none; }
 }
 .why-us-header p {
   font-size: 1rem;
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.7);
   line-height: 1.75;
 }
 .differentiators {
@@ -525,7 +525,7 @@ a  { color: inherit; text-decoration: none; }
 }
 .differentiator p {
   font-size: 0.9rem;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.65);
   line-height: 1.7;
   margin: 0;
 }
@@ -613,7 +613,7 @@ a  { color: inherit; text-decoration: none; }
   position: relative;
   z-index: 1;
 }
-.fc-content .section-tag-light { display: block; margin-bottom: 20px; }
+.fc-content .section-tag-light { margin-bottom: 20px; }
 .fc-content h2 {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
@@ -624,7 +624,7 @@ a  { color: inherit; text-decoration: none; }
 }
 .fc-content p {
   font-size: 1rem;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.78);
   line-height: 1.8;
   margin-bottom: 16px;
 }
@@ -647,7 +647,7 @@ a  { color: inherit; text-decoration: none; }
   gap: 64px;
   align-items: center;
 }
-.story-content .section-tag { display: block; margin-bottom: 20px; }
+.story-content .section-tag { margin-bottom: 20px; }
 .story-content h2 {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
@@ -701,9 +701,11 @@ a  { color: inherit; text-decoration: none; }
 }
 .fca-text p {
   font-size: 1.05rem;
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.7);
   line-height: 1.75;
   max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
 }
 .fca-actions {
   display: flex;
