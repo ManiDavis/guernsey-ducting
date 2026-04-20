@@ -26,9 +26,9 @@ export default function Footer({ settings }: { settings: Settings }) {
         </div>
         <div className="footer-links">
           <nav>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
+            <a href="#what-we-do">What We Make</a>
             <a href="#why-us">Why Us</a>
+            <a href="#our-story">Our Story</a>
             <a href="#contact">Contact</a>
           </nav>
           <div className="footer-contact-links">

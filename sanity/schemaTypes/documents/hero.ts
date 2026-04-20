@@ -11,7 +11,7 @@ export const hero = defineType({
       name: 'badge',
       title: 'Badge Text',
       type: 'string',
-      description: 'Small pill text above the headline (e.g. "Guernsey\'s Ducting Specialist")',
+      description: 'Small pill text above the headline (leave blank to hide)',
     }),
     defineField({
       name: 'headline',
@@ -26,19 +26,22 @@ export const hero = defineType({
       title: 'Subheadline',
       type: 'text',
       rows: 3,
-      description: 'Supporting text below the headline',
     }),
     defineField({
       name: 'primaryCtaLabel',
       title: 'Primary Button Text',
       type: 'string',
-      description: 'Text for the main call-to-action button (links to contact form)',
     }),
     defineField({
       name: 'secondaryCtaLabel',
       title: 'Secondary Button Text',
       type: 'string',
-      description: 'Text for the secondary button (links to services section)',
+    }),
+    defineField({
+      name: 'videoUrl',
+      title: 'Hero Video URL (optional)',
+      type: 'url',
+      description: 'Direct link to an MP4 video file for the background. Leave blank to use the default gradient. On mobile, the gradient is always shown.',
     }),
     defineField({
       name: 'stats',
@@ -48,29 +51,14 @@ export const hero = defineType({
         defineArrayMember({
           type: 'object',
           fields: [
-            defineField({
-              name: 'value',
-              title: 'Value',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: 'label',
-              title: 'Label',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
+            defineField({ name: 'value', title: 'Value', type: 'string', validation: (rule) => rule.required() }),
+            defineField({ name: 'label', title: 'Label', type: 'string', validation: (rule) => rule.required() }),
           ],
-          preview: {
-            select: { title: 'value', subtitle: 'label' },
-          },
+          preview: { select: { title: 'value', subtitle: 'label' } },
         }),
       ],
-      description: 'Up to 3 highlighted stats shown below the CTA buttons',
       validation: (rule) => rule.max(3),
     }),
   ],
-  preview: {
-    prepare: () => ({ title: 'Hero Section' }),
-  },
+  preview: { prepare: () => ({ title: 'Hero Section' }) },
 })

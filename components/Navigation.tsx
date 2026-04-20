@@ -37,9 +37,9 @@ export default function Navigation({ shortName }: Props) {
           {menuOpen ? '✕' : '☰'}
         </button>
         <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
-          <li><a href="#services" onClick={close}>Services</a></li>
-          <li><a href="#about" onClick={close}>About</a></li>
+          <li><a href="#what-we-do" onClick={close}>What We Make</a></li>
           <li><a href="#why-us" onClick={close}>Why Us</a></li>
+          <li><a href="#our-story" onClick={close}>Our Story</a></li>
           <li><a href="#contact" onClick={close} className="btn btn-nav">Get in Touch</a></li>
         </ul>
       </nav>

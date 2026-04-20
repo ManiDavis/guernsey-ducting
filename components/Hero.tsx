@@ -6,6 +6,7 @@ interface HeroData {
   subheadline?: string | null
   primaryCtaLabel?: string | null
   secondaryCtaLabel?: string | null
+  videoUrl?: string | null
   stats?: Array<{ _key: string; value: string; label: string }> | null
 }
 
@@ -14,6 +15,17 @@ export default function Hero({ data }: { data: HeroData }) {
 
   return (
     <section className="hero">
+      {data.videoUrl ? (
+        <video
+          className="hero-video"
+          src={data.videoUrl}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+      ) : null}
       <div className="hero-bg" />
       <div className="container hero-content">
         {data.badge && <div className="hero-badge">{data.badge}</div>}
@@ -28,10 +40,10 @@ export default function Hero({ data }: { data: HeroData }) {
         {data.subheadline && <p className="hero-sub">{data.subheadline}</p>}
         <div className="hero-actions">
           <a href="#contact" className="btn btn-primary">
-            {data.primaryCtaLabel ?? 'Request a Quote'}
+            {data.primaryCtaLabel ?? 'Get in Touch'}
           </a>
-          <a href="#services" className="btn btn-outline">
-            {data.secondaryCtaLabel ?? 'Our Services'}
+          <a href="#what-we-do" className="btn btn-outline">
+            {data.secondaryCtaLabel ?? 'What We Do'}
           </a>
         </div>
         {data.stats && data.stats.length > 0 && (

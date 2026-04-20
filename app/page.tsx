@@ -2,10 +2,13 @@ import { sanityFetch } from '@/sanity/lib/live'
 import { SITE_DATA_QUERY } from '@/sanity/lib/queries'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import TheIdea from '@/components/TheIdea'
 import Services from '@/components/Services'
-import About from '@/components/About'
 import WhyUs from '@/components/WhyUs'
-import Contact from '@/components/Contact'
+import WhereFound from '@/components/WhereFound'
+import ForContractors from '@/components/ForContractors'
+import OurStory from '@/components/OurStory'
+import FinalCta from '@/components/FinalCta'
 import Footer from '@/components/Footer'
 
 // ── Fallback content shown before Sanity is populated ─────────────────────────
@@ -21,48 +24,101 @@ const DEFAULTS = {
   },
   hero: {
     badge: "Guernsey's Ducting Specialist",
-    headline: 'Quality Ducting.\nManufactured Locally.',
+    headline: 'Built here.\nDelivered here.',
     subheadline:
-      'Bespoke ducting fabrication and ventilation solutions for residential, commercial, and industrial projects across the Channel Islands.',
-    primaryCtaLabel: 'Request a Quote',
-    secondaryCtaLabel: 'Our Services',
+      'Bespoke ductwork and sheet metal fabrication, manufactured on-island for Channel Islands projects.',
+    primaryCtaLabel: 'Get in Touch',
+    secondaryCtaLabel: 'What We Make',
+    videoUrl: null,
     stats: [
       { _key: 'k1', value: 'Local', label: 'Guernsey Based' },
       { _key: 'k2', value: 'Custom', label: 'Made to Measure' },
-      { _key: 'k3', value: 'All Sizes', label: 'Any Specification' },
+      { _key: 'k3', value: 'Fast', label: 'Island Turnaround' },
     ],
+  },
+  theIdea: {
+    heading: 'The Idea',
+    lines: [
+      'Guernsey is a small island.',
+      "That means long waits for mainland stock, expensive freight, and components that don't quite fit.",
+      'We fix that.',
+    ],
+    closing: 'Everything we make is fabricated here, for projects here.',
   },
   services: [
-    { _id: 's1', title: 'Rectangular Ducting', description: 'Precision-fabricated rectangular ductwork in galvanised steel or stainless steel, suited to commercial and industrial HVAC installations.', icon: 'rectangular', order: 1 },
-    { _id: 's2', title: 'Circular & Spiral Ducting', description: 'Spiral wound and straight seam circular ducting in a wide range of diameters for efficient, low-resistance airflow systems.', icon: 'circular', order: 2 },
-    { _id: 's3', title: 'Flexible Ducting', description: 'Flexible duct connectors and insulated flexible ducting for connecting terminal units, fan coil units, and diffusers with ease.', icon: 'flexible', order: 3 },
-    { _id: 's4', title: 'Fittings & Accessories', description: 'A complete range of bends, junctions, reducers, dampers, grilles, and access doors fabricated to match your duct system.', icon: 'fittings', order: 4 },
-    { _id: 's5', title: 'Sheet Metal Fabrication', description: 'Custom sheet metal components, plenums, housings, and enclosures fabricated to drawing or from site measurements.', icon: 'sheet-metal', order: 5 },
-    { _id: 's6', title: 'Ventilation Systems', description: 'Supply and extract ventilation systems designed and manufactured locally, from domestic kitchen extract to full commercial mechanical ventilation.', icon: 'ventilation', order: 6 },
+    { _id: 's1', title: 'Rectangular Ductwork', order: 1 },
+    { _id: 's2', title: 'Circular & Spiral Ducting', order: 2 },
+    { _id: 's3', title: 'Bends, Junctions & Fittings', order: 3 },
+    { _id: 's4', title: 'Plenums & Housings', order: 4 },
+    { _id: 's5', title: 'Stainless Steel Fabrication', order: 5 },
+    { _id: 's6', title: 'Kitchen Extract Systems', order: 6 },
+    { _id: 's7', title: 'Custom Sheet Metal', order: 7 },
   ],
-  about: {
-    headline: "Guernsey's Own Ducting Manufacturer",
-    paragraph1:
-      'Guernsey Ducting & Manufacturing Co Ltd is a specialist manufacturer of ductwork and ventilation components based right here in the Channel Islands. We supply contractors, builders, and tradespeople across Guernsey and the surrounding islands.',
-    paragraph2:
-      'Because we manufacture locally, we can turn around bespoke orders faster than mainland suppliers — no long lead times, no expensive shipping, and no compromises on quality. Whether you need a single bespoke component or a full duct system, we have the capability to deliver.',
-    checklist: [
-      'Fabricated to your drawings or specifications',
-      'Galvanised steel, stainless steel, and aluminium options',
-      'Fast local turnaround',
-      'Competitive pricing with no import delays',
+  whyUs: {
+    headline: "Why We're Different",
+    subtext:
+      'A local manufacturer means faster answers, shorter lead times, and no mainland freight.',
+    pillars: [
+      {
+        _key: 'p1',
+        title: 'Made here, not shipped in',
+        description:
+          'Every component is fabricated on-island. No long waits, no customs delays, no damaged deliveries.',
+      },
+      {
+        _key: 'p2',
+        title: 'Bespoke as standard',
+        description:
+          'We work from your drawings or take site measurements. Every piece is made to fit your project.',
+      },
+      {
+        _key: 'p3',
+        title: 'Trade-ready turnaround',
+        description:
+          'We understand build programmes. When you need something fast, we can make it happen.',
+      },
+      {
+        _key: 'p4',
+        title: 'One call, one supplier',
+        description:
+          'Ductwork, fittings, sheet metal — all from one place. Simpler ordering, simpler site logistics.',
+      },
     ],
   },
-  whyUs: {
-    headline: 'The Local Advantage',
-    subtext:
-      'Working with a Guernsey-based manufacturer means a faster, simpler, and more cost-effective process from start to finish.',
-    pillars: [
-      { _key: 'p1', title: 'Made to Measure', description: "Every piece is fabricated to your exact specification. No off-the-shelf compromises — dimensions, materials, and finishes all tailored to your project." },
-      { _key: 'p2', title: 'Fast Turnaround', description: "Local manufacturing means shorter lead times. We understand the pace of building projects in Guernsey and work to keep your programme on track." },
-      { _key: 'p3', title: 'No Import Hassle', description: "Avoid the cost and delays of shipping ductwork from the mainland. We manufacture here, so your order arrives quickly and without customs complications." },
-      { _key: 'p4', title: 'Expert Knowledge', description: "We know the local building trade and the challenges of Channel Islands projects. Get straightforward advice from people who understand your needs." },
+  whereFound: {
+    headline: "Where You'll Find Our Ducting",
+    environments: [
+      'Commercial kitchens',
+      'Office fit-outs',
+      'Housing developments',
+      'Industrial units',
+      'Schools & public buildings',
+      'Marine & offshore',
+      'Retail & hospitality',
+      'Healthcare facilities',
     ],
+    tagline: 'Anywhere air needs to move.',
+  },
+  forContractors: {
+    headline: 'Built for the Trade',
+    paragraph1:
+      "If you're a contractor, developer, or mechanical engineer working on a project in Guernsey, we're the straightforward choice. No mainland lead times. No freight headaches. Just ducting, made here.",
+    paragraph2:
+      'We work from drawings, specs, or a conversation on site. Whatever stage your project is at, we can help.',
+    tagline: "Get in touch and we'll turn it around.",
+  },
+  ourStory: {
+    headline: 'Made in Guernsey',
+    paragraph1:
+      "Guernsey Ducting & Manufacturing Co Ltd has been supplying the local building trade for years. We started because contractors on the island needed a reliable local source — and the mainland option simply wasn't good enough for an island with tight schedules and no room for error.",
+    paragraph2:
+      'Today we supply ductwork and sheet metal components to residential, commercial, and industrial projects across the Channel Islands. Local knowledge. Local stock. Local people.',
+  },
+  finalCta: {
+    headline: 'Ready to talk about your project?',
+    subtext:
+      "Get in touch and we'll discuss what you need. Whether it's a single component or a full system, we can help.",
+    buttonLabel: 'Call Us',
   },
 }
 
@@ -75,20 +131,27 @@ export default async function HomePage() {
     // Sanity not configured or unreachable — render with fallback content
   }
 
-  const settings = { ...DEFAULTS.settings, ...(data?.settings ?? {}) }
-  const hero = { ...DEFAULTS.hero, ...(data?.hero ?? {}) }
-  const services = data?.services?.length ? data.services : DEFAULTS.services
-  const about = { ...DEFAULTS.about, ...(data?.about ?? {}) }
-  const whyUs = { ...DEFAULTS.whyUs, ...(data?.whyUs ?? {}) }
+  const settings    = { ...DEFAULTS.settings,      ...(data?.settings      ?? {}) }
+  const hero        = { ...DEFAULTS.hero,           ...(data?.hero          ?? {}) }
+  const theIdea     = { ...DEFAULTS.theIdea,        ...(data?.theIdea       ?? {}) }
+  const services    = data?.services?.length ? data.services : DEFAULTS.services
+  const whyUs       = { ...DEFAULTS.whyUs,          ...(data?.whyUs         ?? {}) }
+  const whereFound  = { ...DEFAULTS.whereFound,     ...(data?.whereFound    ?? {}) }
+  const forContractors = { ...DEFAULTS.forContractors, ...(data?.forContractors ?? {}) }
+  const ourStory    = { ...DEFAULTS.ourStory,       ...(data?.ourStory      ?? {}) }
+  const finalCta    = { ...DEFAULTS.finalCta,       ...(data?.finalCta      ?? {}) }
 
   return (
     <>
       <Navigation shortName={settings.shortName} />
       <Hero data={hero} />
+      <TheIdea data={theIdea} />
       <Services data={services as typeof DEFAULTS.services} />
-      <About data={about} />
       <WhyUs data={whyUs} />
-      <Contact settings={settings} />
+      <WhereFound data={whereFound} />
+      <ForContractors data={forContractors} />
+      <OurStory data={ourStory} />
+      <FinalCta data={finalCta} settings={settings} />
       <Footer settings={settings} />
     </>
   )
