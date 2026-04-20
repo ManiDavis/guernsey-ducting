@@ -10,14 +10,18 @@ export default function ForContractors({ data }: { data: ForContractorsData }) {
     <section className="for-contractors section" id="for-contractors">
       <div className="container for-contractors-inner">
         <div className="fc-content">
+          <span className="section-tag section-tag-light">For Contractors</span>
           {data.headline && <h2>{data.headline}</h2>}
           {data.paragraph1 && <p>{data.paragraph1}</p>}
           {data.paragraph2 && <p>{data.paragraph2}</p>}
           {data.tagline && <p className="fc-tagline">{data.tagline}</p>}
         </div>
-        <div className="fc-label">
-          <span className="section-tag section-tag-light">For Contractors</span>
-        </div>
+        <img
+          src="/images/for-contractors.jpg"
+          alt="Contractor reviewing building plans on site"
+          className="section-img"
+          loading="lazy"
+        />
       </div>
     </section>
   )

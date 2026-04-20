@@ -14,9 +14,12 @@ export default function Services({ data }: { data: ServiceItem[] }) {
           <h2>Built here.<br />Installed here.</h2>
         </div>
         <div className="services-body">
-          <div className="photo-placeholder" aria-hidden="true">
-            <span>Photo coming soon</span>
-          </div>
+          <img
+            src="/images/services.jpg"
+            alt="Galvanized steel ductwork installed in a commercial building"
+            className="section-img"
+            loading="lazy"
+          />
           <div className="services-list-wrap">
             <ul className="services-list">
               {data.map((svc) => (
