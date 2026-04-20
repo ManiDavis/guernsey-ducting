@@ -20,17 +20,15 @@ export default function Services({ data }: { data: ServiceItem[] }) {
             className="section-img"
             loading="lazy"
           />
-          <div className="services-list-wrap">
-            <ul className="services-list">
-              {data.map((svc) => (
-                <li key={svc._id}>{svc.title}</li>
-              ))}
-            </ul>
-            <p className="services-pull">
-              We don&apos;t order solutions.<br />We make them.
-            </p>
-          </div>
+          <ul className="services-list">
+            {data.map((svc) => (
+              <li key={svc._id}>{svc.title}</li>
+            ))}
+          </ul>
         </div>
+        <p className="services-pull">
+          We don&apos;t order solutions.<br />We make them.
+        </p>
       </div>
     </section>
   )
